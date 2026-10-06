@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: shkolniyshket9
+    runtime: node
+    rootDir: what-to-watch-wikidata
+    region: frankfurt
+    plan: free
+    buildCommand: node --version
+    startCommand: node server.mjs
+    healthCheckPath: /api/wikidata/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: 24.21.0

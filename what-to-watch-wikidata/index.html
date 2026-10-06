@@ -9,16 +9,18 @@
   --bg:#2b211c; --surface:#3b2c24; --surface2:#4a372c; --cream:#f4e8d2;
   --muted:#cbb99e; --accent:#d28b52; --accent2:#b96f3f; --line:#63493a;
   --danger:#b97868; --good:#9caa79;
+  --viewport-height:100vh;
 }
+@supports (height:100dvh){:root{--viewport-height:100dvh}}
 *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
 button,input{font:inherit} button{position:relative;z-index:2;pointer-events:auto} input{position:relative;z-index:2;pointer-events:auto} button{cursor:pointer;border:0}
-body{min-height:100vh}
-.app{width:100%;max-width:480px;min-height:100vh;margin:auto;background:linear-gradient(180deg,#30231d,#261d18);position:relative;overflow:hidden}
-.screen{display:none;position:relative;z-index:1;min-height:100vh;padding:24px 18px 94px;animation:fade .28s ease}.screen.active{display:block}
+body{min-height:var(--viewport-height)}
+.app{width:100%;max-width:480px;min-height:var(--viewport-height);margin:auto;background:linear-gradient(180deg,#30231d,#261d18);position:relative;overflow:hidden}
+.screen{display:none;position:relative;z-index:1;min-height:var(--viewport-height);padding:24px 18px 94px;animation:fade .28s ease}.screen.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 h1{font-size:34px;line-height:1.02;margin:0 0 12px;letter-spacing:-1px} h2{font-size:25px;margin:0 0 8px} h3{margin:0}
 p{color:var(--muted);line-height:1.45}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero{min-height:var(--viewport-height);display:flex;flex-direction:column;justify-content:center;position:relative}
 .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:#d6a77d;margin-bottom:12px}
 .big-btn,.choice,.genre,.navbtn{background:var(--surface);color:var(--cream);border:1px solid var(--line);border-radius:18px;padding:15px 16px;text-align:left;transition:.2s}
 .big-btn{background:var(--accent);color:#271b15;border:none;text-align:center;font-weight:800;font-size:17px;margin-top:18px;box-shadow:0 12px 30px #0003}
@@ -34,7 +36,8 @@ p{color:var(--muted);line-height:1.45}
 .puffin-gif{width:64px;height:64px;object-fit:contain;display:block;}
 .small{font-size:12px;color:var(--muted)}
 .pusheen{position:absolute;right:-10px;bottom:70px;width:150px;max-height:180px;object-fit:contain;filter:none;pointer-events:none}.welcome-puffin{right:4px;top:145px;bottom:auto;width:min(150px,40vw);max-height:160px}
-.onboard{min-height:100vh;display:flex;flex-direction:column}.progress{height:5px;background:#4b382d;border-radius:10px;overflow:hidden;margin:8px 0 28px}.progress i{display:block;height:100%;background:var(--accent);transition:.3s}
+.onboard{min-height:calc(var(--viewport-height) - 48px - env(safe-area-inset-bottom));display:flex;flex-direction:column}#onboarding,#daily{padding-bottom:calc(24px + env(safe-area-inset-bottom))}.progress{height:5px;background:#4b382d;border-radius:10px;overflow:hidden;margin:8px 0 28px}.progress i{display:block;height:100%;background:var(--accent);transition:.3s}
+#obContent:empty::before,#dailyContent:empty::before{content:"Вопрос не загрузился. Обнови страницу, чтобы продолжить.";display:block;color:var(--muted);line-height:1.5;padding:12px 0}
 .question{font-size:30px;line-height:1.08;margin-bottom:20px}
 .grid{display:grid;gap:10px}.grid.two{grid-template-columns:1fr 1fr}
 .choice.selected,.genre.selected{border-color:var(--accent);background:#594132;box-shadow:inset 0 0 0 1px #d28b52}
@@ -572,7 +575,9 @@ function startOnboarding(){
 }
 let movieSearchTimer=null,movieSearchRequest=0;
 function renderOB(){
-  const x=obQuestions[obStep],v=onboardingAnswers[x.key];
+  let x=obQuestions[obStep];
+  if(!x){obStep=0;x=obQuestions[0]}
+  const v=onboardingAnswers[x.key];
   const progress=document.getElementById("progress");
   const content=document.getElementById("obContent");
   if(!progress||!content)return;

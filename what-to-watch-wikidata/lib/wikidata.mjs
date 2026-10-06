@@ -109,6 +109,11 @@ async function linkedLabels(entities, { signal } = {}) {
   return getEntities(ids, { signal });
 }
 
+async function linkedGenreLabels(entities, { signal } = {}) {
+  const ids=entities.flatMap(entity=>qids(entity,'P136'));
+  return getEntities(ids,{signal});
+}
+
 export async function searchWikidataMovies(query, { limit=12, signal } = {}) {
   const term=String(query||'').trim();
   if (!term) return [];
@@ -118,9 +123,9 @@ export async function searchWikidataMovies(query, { limit=12, signal } = {}) {
     const ids=[...new Set((result.search||[]).map(item=>item.id).filter(id=>/^Q\d+$/.test(id)))];
     if(!ids.length)continue;
     const entities=await getEntities(ids,{signal});
-    const films=Object.values(entities).filter(isMovieEntity).slice(0,Math.max(1,Math.min(30,limit)));
+    const films=Object.values(entities).filter(isMovieEntity).slice(0,Math.max(1,Math.min(10,limit)));
     if(!films.length)continue;
-    const linked=await linkedLabels(films,{signal});
+    const linked=await linkedGenreLabels(films,{signal});
     return films.map(entity=>normalizeWikidataEntity(entity,linked));
   }
   return [];

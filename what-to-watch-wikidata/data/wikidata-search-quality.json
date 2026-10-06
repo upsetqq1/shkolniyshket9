@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-10-06T19:53:47.970Z",
+  "source": "Wikidata + Wikimedia Commons APIs",
+  "seedCount": 11,
+  "candidateLimit": 5,
+  "matchedCount": 11,
+  "posterCount": 1,
+  "missed": [],
+  "matches": [
+    {
+      "query": "Интерстеллар",
+      "qid": "Q13417189",
+      "title": "Интерстеллар",
+      "originalTitle": "Interstellar",
+      "year": 2014,
+      "genres": [
+        "sci-fi",
+        "adventure",
+        "drama",
+        "thriller"
+      ],
+      "duration": 169,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Начало",
+      "qid": "Q25188",
+      "title": "Начало",
+      "originalTitle": "Inception",
+      "year": 2010,
+      "genres": [
+        "sci-fi",
+        "thriller",
+        "adventure",
+        "drama",
+        "mystery",
+        "action"
+      ],
+      "duration": 148,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Матрица",
+      "qid": "Q83495",
+      "title": "Матрица",
+      "originalTitle": "The Matrix",
+      "year": 1999,
+      "genres": [
+        "thriller",
+        "sci-fi",
+        "action"
+      ],
+      "duration": 136,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Криминальное чтиво",
+      "qid": "Q104123",
+      "title": "Криминальное чтиво",
+      "originalTitle": "Pulp Fiction",
+      "year": 1994,
+      "genres": [
+        "crime",
+        "drama",
+        "action",
+        "thriller",
+        "comedy"
+      ],
+      "duration": 154,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Крёстный отец",
+      "qid": "Q47703",
+      "title": "Крёстный отец",
+      "originalTitle": "The Godfather",
+      "year": 1972,
+      "genres": [
+        "crime",
+        "drama",
+        "history",
+        "thriller"
+      ],
+      "duration": 175,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Достать ножи",
+      "qid": "Q57982486",
+      "title": "Достать ножи",
+      "originalTitle": "Knives Out",
+      "year": 2020,
+      "genres": [
+        "thriller",
+        "crime",
+        "mystery",
+        "drama",
+        "comedy"
+      ],
+      "duration": 130,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Побег из Шоушенка",
+      "qid": "Q172241",
+      "title": "Побег из Шоушенка",
+      "originalTitle": "The Shawshank Redemption",
+      "year": 1994,
+      "genres": [
+        "drama",
+        "crime"
+      ],
+      "duration": 142,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Титаник",
+      "qid": "Q44578",
+      "title": "Титаник",
+      "originalTitle": "Titanic",
+      "year": 1997,
+      "genres": [
+        "drama",
+        "romance",
+        "history"
+      ],
+      "duration": 195,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "Список Шиндлера",
+      "qid": "Q483941",
+      "title": "Список Шиндлера",
+      "originalTitle": "Schindler's List",
+      "year": 1993,
+      "genres": [
+        "biography",
+        "drama",
+        "history",
+        "war"
+      ],
+      "duration": 195,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "1+1",
+      "qid": "Q595",
+      "title": "1+1",
+      "originalTitle": "The Intouchables",
+      "year": 2011,
+      "genres": [
+        "comedy",
+        "biography",
+        "drama"
+      ],
+      "duration": 112,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": false,
+      "posterLicense": null
+    },
+    {
+      "query": "К северу через северо-запад",
+      "qid": "Q223139",
+      "title": "К северу через северо-запад",
+      "originalTitle": "North by Northwest",
+      "year": 1959,
+      "genres": [
+        "crime",
+        "thriller",
+        "mystery",
+        "action",
+        "adventure",
+        "drama"
+      ],
+      "duration": 136,
+      "hasDirector": true,
+      "actors": 8,
+      "hasPoster": true,
+      "posterLicense": "Public domain"
+    }
+  ]
+}

@@ -36,12 +36,13 @@ p{color:var(--muted);line-height:1.45}
 .puffin-gif{width:64px;height:64px;object-fit:contain;display:block;}
 .small{font-size:12px;color:var(--muted)}
 .pusheen{position:absolute;right:-10px;bottom:70px;width:150px;max-height:180px;object-fit:contain;filter:none;pointer-events:none}.welcome-puffin{right:4px;top:145px;bottom:auto;width:min(150px,40vw);max-height:160px}
-.onboard{min-height:calc(var(--viewport-height) - 48px - env(safe-area-inset-bottom));display:flex;flex-direction:column}#onboarding,#daily{padding-bottom:calc(24px + env(safe-area-inset-bottom))}.progress{height:5px;background:#4b382d;border-radius:10px;overflow:hidden;margin:8px 0 28px}.progress i{display:block;height:100%;background:var(--accent);transition:.3s}
+.onboard{min-height:calc(var(--viewport-height) - 48px - env(safe-area-inset-bottom));display:flex;flex-direction:column}#onboarding{padding-bottom:calc(24px + env(safe-area-inset-bottom))}#daily{padding-bottom:calc(104px + env(safe-area-inset-bottom))}.progress{height:5px;background:#4b382d;border-radius:10px;overflow:hidden;margin:8px 0 28px}.progress i{display:block;height:100%;background:var(--accent);transition:.3s}
 #obContent:empty::before,#dailyContent:empty::before{content:"Вопрос не загрузился. Обнови страницу, чтобы продолжить.";display:block;color:var(--muted);line-height:1.5;padding:12px 0}
 .question{font-size:30px;line-height:1.08;margin-bottom:20px}
 .grid{display:grid;gap:10px}.grid.two{grid-template-columns:1fr 1fr}
 .choice.selected,.genre.selected{border-color:var(--accent);background:#594132;box-shadow:inset 0 0 0 1px #d28b52}
 .bottom-actions{margin-top:auto;display:flex;gap:10px;padding-top:22px}.bottom-actions button{flex:1}
+body[data-route="daily"] .nav{display:none!important}#daily .bottom-actions{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(444px,calc(100% - 36px));margin:0;padding:10px;background:linear-gradient(180deg,rgba(43,33,28,.92),#2b211c);border-radius:20px;z-index:20}
 .secondary{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:16px;padding:14px}
 input{width:100%;background:var(--surface);border:1px solid var(--line);color:var(--cream);padding:16px;border-radius:16px;outline:none}input:focus{border-color:var(--accent)}
 .movie-search{margin:12px 0}

@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const path = require('node:path');
 
 const htmlPath = path.join(__dirname, '..', 'index.html');
-const html = fs.readFileSync(htmlPath, 'utf8');
+const html = fs.readFileSync(htmlPath, 'utf8').replace(/\r\n?/g, '\n');
 const catalogStart = html.indexOf('const DEMO_MOVIE_CATALOG = [');
 const catalogEnd = html.indexOf('\n];\nconst GENRE_RU', catalogStart) + 3;
 const helpersStart = html.indexOf('const GENRE_RU=');

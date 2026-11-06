@@ -42,7 +42,7 @@ p{color:var(--muted);line-height:1.45}
 .grid{display:grid;gap:10px}.grid.two{grid-template-columns:1fr 1fr}
 .choice.selected,.genre.selected{border-color:var(--accent);background:#594132;box-shadow:inset 0 0 0 1px #d28b52}
 .bottom-actions{margin-top:auto;display:flex;gap:10px;padding-top:22px}.bottom-actions button{flex:1}
-body[data-route="daily"] .nav,body[data-route="roulette"] .nav{display:none!important}#daily .bottom-actions{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(444px,calc(100% - 36px));margin:0;padding:10px;background:var(--bg);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 26px #0008;z-index:20}
+body[data-route="daily"] .nav{display:none!important}#daily .bottom-actions{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(444px,calc(100% - 36px));margin:0;padding:10px;background:var(--bg);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 26px #0008;z-index:20}
 .secondary{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:16px;padding:14px}
 input{width:100%;background:var(--surface);border:1px solid var(--line);color:var(--cream);padding:16px;border-radius:16px;outline:none}input:focus{border-color:var(--accent)}
 .movie-search{margin:12px 0}
@@ -61,148 +61,6 @@ input{width:100%;background:var(--surface);border:1px solid var(--line);color:va
 .toggle{display:flex;justify-content:space-between;align-items:center;background:var(--surface);padding:16px;border-radius:16px;margin:10px 0}.switch{width:48px;height:28px;border-radius:20px;background:#5b4437;padding:3px}.switch i{display:block;width:22px;height:22px;background:#d7c1a4;border-radius:50%;transition:.2s}.switch.on{background:var(--accent)}.switch.on i{transform:translateX(20px)}
 
 .ob-optional{margin:10px 0 0;display:flex;gap:8px;flex-wrap:wrap}.ob-optional button{font-size:13px}.selected-movies{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.selected-movie{display:flex;align-items:center;gap:7px;background:#f0dfcf;border:1px solid #b99576;border-radius:999px;padding:6px 10px;font-size:13px;color:#2c211b!important;-webkit-text-fill-color:#2c211b!important}.selected-movie button{border:0;background:none;padding:0;min-width:auto;color:#2c211b!important;-webkit-text-fill-color:#2c211b!important}.selected-movie button:hover,.selected-movie button:focus,.selected-movie button:active,.selected-movie button:disabled{color:#2c211b!important;-webkit-text-fill-color:#2c211b!important;background:none}.movie-section-title{margin:16px 0 8px;font-weight:700}.movie-grid-picks{display:grid;grid-template-columns:1fr 1fr;gap:8px}.movie-grid-picks .movie-pick{margin:0}.range-wrap{padding:8px 2px}.range-row{display:flex;justify-content:space-between;font-size:13px;opacity:.75}.range-value{font-weight:800;font-size:22px;margin:4px 0 8px}.range-wrap input[type=range]{width:100%}
-</style>
-<style>
-/* Cozy Digital Scrapbook — editorial film journal */
-:root{--bg:#F4EFE6;--surface:#fbf8f1;--surface2:#e9dece;--cream:#40332C;--muted:#76695f;--accent:#B85D3D;--accent2:#843E3D;--line:#D9C7AE;--danger:#843E3D;--good:#737451;--paper:#F4EFE6;--olive:#A5A17B;--amber:#D88B4C}
-html,body{background:#e8dfd2;color:var(--cream)}
-body{background:radial-gradient(ellipse at 18% 8%,#fffaf0 0,transparent 48%),#e8dfd2}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.16;background-image:radial-gradient(rgba(64,51,44,.16) .55px,transparent .75px);background-size:5px 5px}
-.app{background:var(--paper);color:var(--cream);box-shadow:0 18px 60px #40332c18}
-.screen{animation:page-reveal .32s ease both}
-@keyframes page-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-h1,h2{font-family:ui-serif,Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.045em;color:var(--cream)}
-h1{line-height:.98}h2{line-height:1.05}h3{color:var(--cream);letter-spacing:-.02em}
-p{color:var(--muted)}
-.eyebrow{font-size:10px;letter-spacing:2.2px;color:var(--accent);font-weight:750}
-.big-btn{background:var(--accent);color:#fff9ef;box-shadow:0 8px 20px #843e3d22;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-.magnetic-btn{--mag-x:0px;--mag-y:0px;transform:translate3d(var(--mag-x),var(--mag-y),0);transition:transform .22s cubic-bezier(.2,.75,.25,1),box-shadow .18s ease,background .18s ease}
-.magnetic-btn:hover{transform:translate3d(var(--mag-x),calc(var(--mag-y) - 2px),0)}
-.magnetic-btn:active{transform:translate3d(var(--mag-x),var(--mag-y),0) scale(.975)}
-.big-btn:hover{background:#a94f34;box-shadow:0 12px 26px #843e3d30}
-.secondary{background:#fffaf2;color:var(--cream);border-color:var(--line);transition:background .18s ease,border-color .18s ease,transform .18s ease}
-.secondary:hover{background:#efe5d6;border-color:#bda58a}
-.choice,.genre{background:#fffaf2;color:var(--cream);border-color:var(--line);border-radius:15px;transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
-.choice:hover,.genre:hover{background:#f0e5d6}
-.choice.selected,.genre.selected{border-color:var(--accent);background:#f5e5d8;box-shadow:inset 0 0 0 1px #b85d3d45}
-input{background:#fffaf2;color:var(--cream);border-color:var(--line)}
-.app{background-color:var(--paper);background-image:radial-gradient(ellipse at 88% 9%,#d9c7ae25,transparent 24%),linear-gradient(135deg,#ffffff23,transparent 42%)}
-.progress{background:#e5d7c4}.progress i{background:var(--accent)}
-.stat,.mini,.rec-card,.movie-pick,.toggle{background:#fffaf2;border-color:var(--line);box-shadow:0 5px 20px #40332c08}
-.stat span,.movie-pick small,.small{color:var(--muted)}
-.tag{background:#eee2d2;color:#704b3d}
-.poster{background:#e8d9c7}
-.actions button{background:#eee2d2;color:var(--cream);border:1px solid #dfceba;transition:transform .18s ease,background .18s ease}
-.actions button:first-child{background:var(--accent);color:#fff9ef;border:0}
-.actions button:hover{transform:translateY(-2px)}
-.rec-card{border-radius:5px 20px 20px 20px;overflow:hidden;animation:card-reveal .52s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--reveal-delay,0ms)}
-@keyframes card-reveal{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
-.rec-card .poster.large{border-radius:4px 14px 14px 14px}
-.reason{color:#805344}
-.section-head{border-bottom:1px solid var(--line);padding-bottom:10px}
-.movie-section-title{color:var(--cream)}
-.nav{background:#f4efe6ed;border-top-color:var(--line);box-shadow:0 -8px 24px #40332c0b;backdrop-filter:blur(14px)}
-.nav button{color:var(--muted);font-weight:650}.nav button.active{color:var(--accent)}
-.toast{background:#40332c;color:#fffaf2;box-shadow:0 8px 24px #40332c2c}
-.detail-back{color:var(--accent);font-weight:700}
-.home-promo{isolation:isolate;position:relative}
-.home-promo::after{content:"";position:absolute;right:8%;top:-42px;width:180px;height:180px;border-radius:63% 37% 46% 54%/44% 46% 54% 56%;background:radial-gradient(ellipse,#d88b4c33,#b85d3d12 68%,transparent 72%);z-index:-1;pointer-events:none;animation:organic-breathe 12s ease-in-out infinite alternate}
-@keyframes organic-breathe{from{border-radius:63% 37% 46% 54%/44% 46% 54% 56%;transform:rotate(-8deg) scale(.96)}to{border-radius:39% 61% 59% 41%/57% 38% 62% 43%;transform:rotate(9deg) scale(1.04)}}
-#dailyContent{position:relative;isolation:isolate;--mood-accent:#A5A17B}
-#dailyContent::before{content:"";position:absolute;z-index:-1;right:-18px;top:48px;width:190px;height:145px;border-radius:58% 42% 64% 36%/45% 47% 53% 55%;background:var(--mood-accent,#A5A17B);opacity:.12;filter:blur(3px);transition:background-color .45s ease,border-radius .65s ease;animation:organic-breathe 10s ease-in-out infinite alternate;pointer-events:none}
-.home-cta .big-btn{flex:1}
-.home-roulette{width:100%;margin-top:10px;padding:12px 14px;border:1px dashed #b85d3d80;border-radius:14px;background:#fffaf280;color:var(--accent2);font-weight:750;text-align:left;transition:background .2s ease,transform .2s ease}
-.home-roulette:hover{background:#f5e5d8;transform:translateY(-1px)}
-.folio-label{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:10px;letter-spacing:1.8px;text-transform:uppercase}
-.folio-label::before{content:"";width:24px;height:1px;background:var(--accent)}
-.poster-wrap,.detail-poster-wrap{position:relative;min-width:0}
-.poster-wrap .poster.large{display:block;width:100%;height:250px;object-fit:cover}
-.favorite-toggle{display:grid;place-items:center;width:38px;height:38px;position:absolute;right:10px;top:10px;border:1px solid #fff9;border-radius:50%;background:#f4efe6ef;color:var(--accent2);font-size:20px;line-height:1;box-shadow:0 3px 12px #40332c20;transition:transform .2s ease,background .2s ease,color .2s ease}
-.favorite-toggle[aria-pressed="true"]{background:var(--accent2);color:#fff9ef;border-color:var(--accent2)}
-.favorite-toggle.favorite-pop{animation:favorite-pop .46s cubic-bezier(.2,1.6,.4,1)}
-@keyframes favorite-pop{45%{transform:scale(1.32) rotate(-9deg)}100%{transform:scale(1)}}
-.detail-poster-wrap .poster.large{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;border-radius:8px 22px 22px 22px}
-.collection-pick{position:relative}
-.collection-pick .poster-wrap{flex:none;width:52px;height:74px}
-.collection-pick .poster-wrap .poster{display:block;width:52px;height:74px}
-.collection-pick .favorite-toggle{right:8px;top:8px}
-#roulette .roulette-stage{min-height:270px;display:grid;place-items:center;margin:24px 0;background:linear-gradient(135deg,#e7d8c7,#f8f2e9);border:1px solid var(--line);border-radius:8px 24px 24px 24px;overflow:hidden;position:relative}
-#roulette .roulette-stage::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 35px,#40332c07 35px 36px);pointer-events:none}
-.roulette-card{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:18px;width:min(92%,520px);position:relative;animation:roulette-arrive .32s ease both}
-.roulette-card .poster{width:120px;height:180px;border-radius:6px 15px 15px 15px;box-shadow:0 10px 24px #40332c28}
-.roulette-card h2{font-size:clamp(22px,4vw,34px)}
-.roulette-stage.spinning .roulette-card{filter:saturate(.8);transform:scale(.97)}
-@keyframes roulette-arrive{from{opacity:.25;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
-.roulette-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px auto;max-width:560px}
-.roulette-actions button{flex:1 1 145px}
-.rec-card .info{min-width:0}
-#resultSummary{max-width:740px}
-.screen>.eyebrow:first-child{margin-top:4px}
-@media(min-width:760px){
- .app{max-width:1320px;min-height:calc(var(--viewport-height) - 48px);margin:24px auto;border-radius:28px;overflow:hidden}
- .screen{max-width:1280px;margin:0 auto;padding:100px 72px 90px;min-height:calc(var(--viewport-height) - 48px)}
- .nav{position:fixed;left:50%;top:0;bottom:auto;transform:translateX(-50%);width:min(1320px,100%);height:76px;padding:0 72px;justify-content:flex-end;gap:18px;border-top:0;border-bottom:1px solid var(--line);border-radius:0 0 18px 18px;background:#f4efe6f2;box-shadow:0 8px 22px #40332c0a;z-index:25}
- .nav::before{content:"КИНОДНЕВНИК";margin-right:auto;color:var(--cream);font:600 15px ui-serif,Georgia,serif;letter-spacing:2px}
- .nav button{padding:10px 12px;border-radius:99px;font-size:13px}
- .nav button.active{background:#eadbca}
- #welcome .hero{min-height:calc(var(--viewport-height) - 190px);max-width:820px;margin:0 auto;width:100%;padding:56px 0}
- #welcome h1{font-size:clamp(58px,8vw,102px);max-width:760px}
- #welcome .welcome-copy-row{max-width:740px}
- #welcome .welcome-copy p{font-size:18px;max-width:620px}
- #welcome .welcome-gif{width:150px;height:150px}
- #welcome .hero>.big-btn,#welcome .hero>.secondary{max-width:360px}
- #home{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,.8fr);grid-template-areas:"head head" "promo stats" "recent taste";align-content:start;gap:24px 36px}
- #home>.header{grid-area:head;margin-bottom:2px}
- #home>.home-promo{grid-area:promo;min-height:270px;padding:34px!important;display:flex;flex-direction:column;justify-content:center;border-radius:6px 26px 26px 26px!important;background:linear-gradient(125deg,#ead6c4,#f7ecde)!important;border-color:#d9c7ae!important}
- #home .home-promo h2{font-size:clamp(34px,4vw,54px);max-width:600px}
- #home .home-promo p{max-width:510px}
- #home .home-cta{max-width:460px}
- #home>.statrow{grid-area:stats;align-self:stretch;grid-template-columns:1fr;align-content:center;margin:0}
- #home>.home-recent{grid-area:recent}
- #home>.home-taste{grid-area:taste}
- #home .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
- #home .mini{min-width:0}
- #home .mini .poster{height:190px}
- #results{padding-top:100px}
- #resultsList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
- .rec-card{margin:0;min-width:0}
- .rec-card .poster-wrap .poster.large{height:clamp(250px,27vw,350px)}
- #resultsList>.rec-card:first-child{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);min-height:440px}
- #resultsList>.rec-card:first-child .poster-wrap{min-height:440px}
- #resultsList>.rec-card:first-child .poster-wrap .poster.large{height:100%;min-height:440px}
- #resultsList>.rec-card:first-child .info{align-self:center;padding:28px}
- .actions{flex-wrap:wrap}
- .actions button{flex:1 1 42%;min-height:42px}
- #onboarding,#daily{max-width:860px}
- #obContent .grid,#dailyContent .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- #daily .bottom-actions{position:sticky;width:100%;left:auto;bottom:auto;transform:none;margin-top:auto;padding:18px 0 0;border:0;background:transparent;box-shadow:none}
- #daily .bottom-actions button{max-width:240px}
- #detailContent{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:42px;align-items:start}
- #detailContent .detail-poster-wrap{position:sticky;top:104px;height:min(68vh,650px)}
- #detailContent .detail-title{margin-top:0}
- #savedList,#historyList,#favoritesList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
- .collection-pick{margin:0!important}
- #profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);grid-template-areas:"head email" "taste settings" "sources settings";align-content:start;gap:0 48px}
- #profile>h2{grid-area:head}
- #profile>#profileEmail{grid-area:email;align-self:end;margin:0 0 16px}
- #profile>.section:nth-of-type(2){grid-area:taste}
- #profile>.section:nth-of-type(3){grid-area:settings}
- #profile>.section:nth-of-type(4){grid-area:sources}
- #roulette{max-width:920px}
- #roulette .roulette-stage{min-height:390px}
- #roulette .roulette-card{grid-template-columns:190px 1fr}
- #roulette .roulette-card .poster{width:190px;height:280px}
-}
-@media(max-width:759px){
- .app{max-width:480px;margin:0 auto;min-height:var(--viewport-height);border-radius:0}
- .screen{padding-left:18px;padding-right:18px}
- #resultsList{display:grid;grid-template-columns:1fr;gap:4px}
- #daily .bottom-actions{position:fixed}
- .detail-poster-wrap .poster.large{min-height:250px;height:64vw;max-height:390px}
- #profile>.section{margin-top:22px}
-}
-@media(hover:hover) and (pointer:fine){.magnetic-btn{will-change:transform}.favorite-toggle:hover{transform:scale(1.08)}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 <meta name="application-name" content="Что посмотреть?">
 <meta name="theme-color" content="#4a3024">
@@ -249,20 +107,19 @@ input{background:#fffaf2;color:var(--cream);border-color:var(--line)}
 
 <section id="home" class="screen">
   <div class="header"><div><div class="eyebrow">добрый вечер 🍂</div><h2 id="hello">Привет!</h2></div><div class="avatar" id="avatar">?</div></div>
-  <div class="home-promo" style="position:relative;background:linear-gradient(135deg,#5a4030,#3c2c23);padding:22px;border-radius:24px;border:1px solid #72513d;overflow:hidden">
+  <div style="position:relative;background:linear-gradient(135deg,#5a4030,#3c2c23);padding:22px;border-radius:24px;border:1px solid #72513d;overflow:hidden">
     <div class="eyebrow">сегодня</div><h2>Что хочется посмотреть?</h2><p style="max-width:270px">Пять коротких ответов — и мы соберём тебе вечер.</p>
     <div class="home-cta">
-      <button class="big-btn magnetic-btn" data-action="start-daily">Подобрать мне</button>
+      <button class="big-btn" data-action="start-daily">Подобрать мне</button>
       <div class="puffin-slot" aria-hidden="true">
         <img id="puffinHomeGif" class="puffin-gif" src="assets/puffin.gif" alt="" onerror="this.style.display='none';this.parentElement.classList.add('empty')">
       </div>
     </div>
-    <button type="button" class="home-roulette" data-action="start-roulette" aria-label="Запустить кино-рулетку">◉ &nbsp;Кино-рулетка <span class="small">— выберет фильм по твоему вкусу</span></button>
     <img class="pusheen" style="display:none" id="pusheenHome">
   </div>
   <div class="statrow"><div class="stat" role="button" tabindex="0" data-action="nav" data-route="history" aria-label="Открыть просмотренные"><b id="watchedCount">0</b><span>просмотрено</span></div><div class="stat" role="button" tabindex="0" data-action="nav" data-route="saved" aria-label="Открыть сохранённое"><b id="savedCount">0</b><span>сохранено</span></div><div class="stat" role="button" tabindex="0" data-action="nav" data-route="favorites" aria-label="Открыть любимые фильмы"><b id="favCount">0</b><span>любимых</span></div></div>
-  <div class="section home-recent"><div class="section-head"><h3>Уже смотрел(а)</h3></div><div id="recent" class="cards"></div></div>
-  <div class="section home-taste"><div class="section-head"><h3>Твой вкус</h3></div><div id="taste"></div></div>
+  <div class="section"><div class="section-head"><h3>Уже смотрел(а)</h3></div><div id="recent" class="cards"></div></div>
+  <div class="section"><div class="section-head"><h3>Твой вкус</h3></div><div id="taste"></div></div>
 </section>
 
 <section id="daily" class="screen">
@@ -275,18 +132,8 @@ input{background:#fffaf2;color:var(--cream);border-color:var(--line)}
  <p id="resultSummary"></p><div id="resultsList"></div>
 </section>
 
-<section id="roulette" class="screen">
- <button class="detail-back" data-action="show-home">← На главную</button>
- <div class="eyebrow">кино-рулетка · коллекция вечера</div>
- <h1>Пусть кино<br>выберет тебя</h1>
- <p id="rouletteStatus">Подберу фильм из того, что подходит твоему профилю и чего ты ещё не смотрела.</p>
- <div id="rouletteStage" class="roulette-stage" aria-live="polite"><div class="folio-label">готова к запуску</div></div>
- <div id="rouletteActions" class="roulette-actions"></div>
- <button type="button" id="rouletteSpin" class="big-btn magnetic-btn" data-action="spin-roulette">Пустить плёнку по кругу</button>
-</section>
-
 <section id="detail" class="screen">
- <button class="detail-back" data-action="detail-back">← Назад</button>
+ <button class="detail-back" data-action="show-results">← К рекомендациям</button>
  <div id="detailContent"></div>
 </section>
 
@@ -620,7 +467,7 @@ function movieObj(a){
   };
 }
 let movies=[];
-let currentUser=null, obStep=0, dailyStep=0, onboardingAnswers={}, dailyMoodAnswers={}, authMode="login", lastResults=[],detailReturnTo="results",lastRouletteWinnerId="",rouletteRunning=false;
+let currentUser=null, obStep=0, dailyStep=0, onboardingAnswers={}, dailyMoodAnswers={}, authMode="login", lastResults=[];
 Object.defineProperty(window,"obAnswers",{get:()=>onboardingAnswers,set:v=>{onboardingAnswers=v}});
 Object.defineProperty(window,"dailyAnswers",{get:()=>dailyMoodAnswers,set:v=>{dailyMoodAnswers=v}});
 
@@ -825,7 +672,7 @@ function finishOnboarding(){
 }
 
 function startDaily(){dailyStep=0;dailyMoodAnswers={mood:[],format:"",availableTime:"",genres:[],additionalPreferences:{},familiarity:"",newContent:null};if(currentUser){currentUser.dailyMoodAnswers=JSON.parse(JSON.stringify(dailyMoodAnswers));persist()}show("daily");renderDaily()}
-function renderDaily(){const x=dailyQuestions[dailyStep],v=dailyMoodAnswers[x.key],content=document.getElementById("dailyContent"),mood=normalizeMoodSelection(dailyMoodAnswers.mood).join(" ").toLowerCase();const tint=/расслаб|уют/.test(mood)?"#A5A17B":/роман/.test(mood)?"#843E3D":/испуг|напряж/.test(mood)?"#8D6675":/посме|приключ/.test(mood)?"#D88B4C":"#A5A17B";content.style.setProperty("--mood-accent",tint);document.getElementById("dailyProgress").style.width=((dailyStep+1)/dailyQuestions.length*100)+"%";let html=`<div class="eyebrow">вопрос ${dailyStep+1} из ${dailyQuestions.length}</div><div class="question">${esc(x.q)}</div>`;if(x.type==="genres")html+=`<p>Можно выбрать несколько или оставить «Удиви меня».</p><div class="grid two">${x.opts.map(o=>`<button type="button" class="genre ${(dailyMoodAnswers.genres||[]).includes(o)?'selected':''}" data-action="toggle-daily-genre" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;else if(x.key==="mood")html+=`<p>Можно выбрать несколько вариантов. «Не знаю — выбери за меня» — отдельный вариант.</p><div class="grid">${x.opts.map(o=>`<button type="button" class="choice ${(normalizeMoodSelection(v).includes(o))?'selected':''}" data-action="toggle-daily-mood" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;else html+=`<div class="grid">${x.opts.map(o=>`<button type="button" class="choice ${v===o?'selected':''}" data-action="set-daily" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;content.innerHTML=html}
+function renderDaily(){const x=dailyQuestions[dailyStep],v=dailyMoodAnswers[x.key];document.getElementById("dailyProgress").style.width=((dailyStep+1)/dailyQuestions.length*100)+"%";let html=`<div class="eyebrow">вопрос ${dailyStep+1} из ${dailyQuestions.length}</div><div class="question">${esc(x.q)}</div>`;if(x.type==="genres")html+=`<p>Можно выбрать несколько или оставить «Удиви меня».</p><div class="grid two">${x.opts.map(o=>`<button type="button" class="genre ${(dailyMoodAnswers.genres||[]).includes(o)?'selected':''}" data-action="toggle-daily-genre" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;else if(x.key==="mood")html+=`<p>Можно выбрать несколько вариантов. «Не знаю — выбери за меня» — отдельный вариант.</p><div class="grid">${x.opts.map(o=>`<button type="button" class="choice ${(normalizeMoodSelection(v).includes(o))?'selected':''}" data-action="toggle-daily-mood" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;else html+=`<div class="grid">${x.opts.map(o=>`<button type="button" class="choice ${v===o?'selected':''}" data-action="set-daily" data-value="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;document.getElementById("dailyContent").innerHTML=html}
 function saveDailyDraft(){if(currentUser){currentUser.dailyMoodAnswers=JSON.parse(JSON.stringify(dailyMoodAnswers));persist()}}
 function setDaily(v){const key=dailyQuestions[dailyStep].key;dailyMoodAnswers[key]=v;if(key==="familiarity")dailyMoodAnswers.newContent=v.startsWith(" Хочу что-нибудь новенькое");saveDailyDraft();renderDaily()}
 function toggleDailyMood(v){dailyMoodAnswers.mood=toggleMoodSelection(dailyMoodAnswers.mood,v);saveDailyDraft();renderDaily()}
@@ -982,38 +829,23 @@ async function makeRecommendations(){
   finally{if(button){button.disabled=false;button.textContent="Дальше"}}
 }
 
-function startRoulette(){if(!currentUser){show("welcome");return}show("roulette");document.getElementById("rouletteStage").innerHTML=`<div class="folio-label">лента готовится</div>`;document.getElementById("rouletteActions").innerHTML="";document.getElementById("rouletteSpin").textContent="Пустить плёнку по кругу";spinMovieRoulette()}
-function rouletteCardHTML(movie){const genres=(movie.genres||[]).map(genreRu).slice(0,3).join(" · ");return `<div class="roulette-card"><img class="poster" src="${poster(movie)}" alt="Постер: ${esc(movie.title)}"><div><div class="eyebrow">кадр из твоего следующего фильма</div><h2>${esc(movie.title)}</h2><p>${movie.year||"Год неизвестен"} · ${durationText(movie)}${genres?`<br>${esc(genres)}`:""}</p></div></div>`}
-function favoriteActionButtonHTML(id){const favorite=!!currentUser?.profile?.favoriteMovies?.includes(id);return `<button type="button" class="secondary favorite-action" data-action="favorite" data-id="${esc(id)}" aria-pressed="${favorite}">${favorite?"♥ В избранном":"♡ В избранное"}</button>`}
-async function spinMovieRoulette(){if(rouletteRunning)return;const button=document.getElementById("rouletteSpin"),stage=document.getElementById("rouletteStage"),status=document.getElementById("rouletteStatus"),actions=document.getElementById("rouletteActions");if(!button||!stage||!status||!actions)return;rouletteRunning=true;button.disabled=true;button.textContent="Крутим плёнку…";actions.innerHTML="";status.textContent="Ищу фильмы, которые подходят твоему профилю и ещё не встречались в истории…";stage.classList.add("spinning");
- try{
-   const provider=movieProviders.active,catalog=provider.getRecommendationCatalog?await provider.getRecommendationCatalog():provider.catalog||movies;movies=catalog;
-   const ranked=recommendationEngine.recommendMovies({userProfile:currentUser.profile,movies:catalog,moodAnswers:{mood:[],genres:[],format:"Без разницы",availableTime:currentUser.profile.preferredDuration||"Неважно",familiarity:"Хочу что-нибудь новенькое",newContent:true},limit:Math.max(1,catalog.length)});
-   if(!ranked.length){stage.classList.remove("spinning");stage.innerHTML=`<div class="empty">В каталоге пока не нашлось нового подходящего фильма.</div>`;status.textContent="Рулетка исключает просмотренные и отмеченные «Не моё» фильмы.";button.disabled=false;button.textContent="Попробовать ещё раз";rouletteRunning=false;return}
-   const pool=ranked.slice(0,Math.min(12,ranked.length));let choices=pool.filter(item=>item.m.id!==lastRouletteWinnerId);if(!choices.length)choices=pool;const winner=choices[Math.floor(Math.random()*choices.length)];
-   if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){for(let frame=0;frame<18;frame++){const candidate=pool[frame%pool.length].m;stage.innerHTML=rouletteCardHTML(candidate);await new Promise(resolve=>setTimeout(resolve,45+frame*8))}}
-   lastRouletteWinnerId=winner.m.id;stage.classList.remove("spinning");stage.innerHTML=rouletteCardHTML(winner.m);status.textContent=`Выбрали один из ${ranked.length} подходящих фильмов — с учётом твоего профиля.`;actions.innerHTML=`<button type="button" class="secondary" data-action="detail" data-id="${esc(winner.m.id)}">Открыть карточку</button>${favoriteActionButtonHTML(winner.m.id)}<button type="button" class="big-btn" data-action="like" data-id="${esc(winner.m.id)}">Хочу посмотреть</button>`;button.disabled=false;button.textContent="Крутить ещё раз";
- }catch(error){console.error("Movie roulette error:",error);stage.classList.remove("spinning");stage.innerHTML=`<div class="empty">Не удалось загрузить подборку. Попробуй ещё раз.</div>`;status.textContent="";button.disabled=false;button.textContent="Попробовать ещё раз"}finally{rouletteRunning=false}}
-
-function renderResults(){document.getElementById("resultsList").innerHTML=lastResults.map((x,i)=>recHTML(x.m,x.reasons?.[0]||recommendationLabel(x,i),x.reasons||[],i)).join("")}
+function renderResults(){document.getElementById("resultsList").innerHTML=lastResults.map((x,i)=>recHTML(x.m,x.reasons?.[0]||recommendationLabel(x,i),x.reasons||[])).join("")}
 function durationText(m){return m.duration?`${m.duration} мин`:"длительность неизвестна"}
-function favoriteToggleHTML(id){const favorite=!!currentUser?.profile?.favoriteMovies?.includes(id);return `<button type="button" class="favorite-toggle" data-action="favorite" data-id="${esc(id)}" aria-pressed="${favorite}" aria-label="${favorite?'Убрать из избранного':'Добавить в избранное'}" title="${favorite?'Убрать из избранного':'Добавить в избранное'}">${favorite?'♥':'♡'}</button>`}
-function recHTML(m,label,reasons=[],index=0){const gs=(m.genres||[]).map(genreRu).slice(0,3);return `<article class="rec-card" style="--reveal-delay:${Math.min(index,8)*55}ms"><div class="poster-wrap"><img class="poster large" src="${poster(m)}" data-action="detail" data-id="${esc(m.id)}" alt="Постер: ${esc(m.title)}">${favoriteToggleHTML(m.id)}</div><div class="info"><div class="eyebrow">${esc(label)}</div><h3>${esc(m.title)}</h3><p>${m.year||"Год неизвестен"} · ${durationText(m)} · ${esc(gs.join(" · "))}</p><div>${gs.map(g=>`<span class="tag">${esc(g)}</span>`).join("")}</div><div class="reason">${esc(reasons[0]||label)}</div><div class="actions"><button type="button" data-action="like" data-id="${esc(m.id)}">Хочу посмотреть</button><button type="button" data-action="watched" data-id="${esc(m.id)}">Уже смотрел</button><button type="button" data-action="not-for-me" data-id="${esc(m.id)}">Не моё</button></div></div></article>`}
+function recHTML(m,label,reasons=[]){const gs=(m.genres||[]).map(genreRu).slice(0,3);return `<article class="rec-card"><img class="poster large" src="${poster(m)}" data-action="detail" data-id="${esc(m.id)}" alt=""><div class="info"><div class="eyebrow">${esc(label)}</div><h3>${esc(m.title)}</h3><p>${m.year||"Год неизвестен"} · ${durationText(m)} · ${esc(gs.join(" · "))}</p><div>${gs.map(g=>`<span class="tag">${esc(g)}</span>`).join("")}</div><div class="reason">${esc(reasons[0]||label)}</div><div class="actions"><button type="button" data-action="like" data-id="${esc(m.id)}">Хочу посмотреть</button><button type="button" data-action="watched" data-id="${esc(m.id)}">Уже смотрел</button><button type="button" data-action="not-for-me" data-id="${esc(m.id)}">Не моё</button></div></div></article>`}
 function reasonFor(m){const found=lastResults.find(x=>x.m.id===m.id);return found?.reasons?.[0]||"Хорошо совпадает с несколькими параметрами твоего профиля."}
 
 async function detail(id){
-  let m=movieById(id);if(!m)return;const origin=document.body.dataset.route||"results";if(origin!=="detail")detailReturnTo=origin;show("detail");const container=document.getElementById("detailContent");container.innerHTML="<p>Загружаю карточку…</p>";if(movieProviders.active.getMovieById)try{m=await movieProviders.active.getMovieById(id)||m;const ix=movies.findIndex(x=>x.id===m.id);if(ix>=0)movies[ix]=m;else movies.push(m)}catch{}const gs=(m.genres||[]).map(genreRu),kind=m.type==="series"?"Сериал":m.type==="animation"?"Анимация":"Фильм";
-  container.innerHTML=`<div class="detail-poster-wrap"><img class="poster large" src="${poster(m)}" alt="Постер: ${esc(m.title)}">${favoriteToggleHTML(m.id)}</div><div class="detail-title"><div class="eyebrow">${esc(gs.join(" · "))}</div><h1>${esc(m.title)}</h1><p>${m.year||"Год неизвестен"} · ${durationText(m)} · ${kind}</p><div>${gs.map(g=>`<span class="tag">${esc(g)}</span>`).join("")}</div><p style="margin-top:18px">${esc(m.description)}</p>${m.director?`<p>Режиссёр: ${esc(m.director.replaceAll("|",", "))}</p>`:""}${m.actors?.length?`<p>В ролях: ${esc(m.actors.join(", "))}</p>`:""}<div class="section"><h3>Почему мы выбрали это?</h3><p>${esc(reasonFor(m))}</p></div><div class="actions"><button type="button" data-action="like" data-id="${esc(m.id)}">Хочу посмотреть</button><button type="button" data-action="watched" data-id="${esc(m.id)}">Уже смотрел</button></div></div>`;
+  let m=movieById(id);if(!m)return;show("detail");const container=document.getElementById("detailContent");container.innerHTML="<p>Загружаю карточку…</p>";if(movieProviders.active.getMovieById)try{m=await movieProviders.active.getMovieById(id)||m;const ix=movies.findIndex(x=>x.id===m.id);if(ix>=0)movies[ix]=m;else movies.push(m)}catch{}const gs=(m.genres||[]).map(genreRu),kind=m.type==="series"?"Сериал":m.type==="animation"?"Анимация":"Фильм";
+  container.innerHTML=`<img class="poster large" src="${poster(m)}" alt=""><div class="detail-title"><div class="eyebrow">${esc(gs.join(" · "))}</div><h1>${esc(m.title)}</h1><p>${m.year||"Год неизвестен"} · ${durationText(m)} · ${kind}</p><div>${gs.map(g=>`<span class="tag">${esc(g)}</span>`).join("")}</div><p style="margin-top:18px">${esc(m.description)}</p>${m.director?`<p>Режиссёр: ${esc(m.director.replaceAll("|",", "))}</p>`:""}${m.actors?.length?`<p>В ролях: ${esc(m.actors.join(", "))}</p>`:""}<div class="section"><h3>Почему мы выбрали это?</h3><p>${esc(reasonFor(m))}</p></div><div class="actions"><button type="button" data-action="like" data-id="${esc(m.id)}">Хочу посмотреть</button><button type="button" data-action="watched" data-id="${esc(m.id)}">Уже смотрел</button></div></div>`;
 }
 
 function likeMovie(id){if(!currentUser.likedMovies.includes(id))currentUser.likedMovies.push(id);if(!currentUser.savedMovies.includes(id))currentUser.savedMovies.push(id);currentUser.dislikedMovies=currentUser.dislikedMovies.filter(x=>x!==id);currentUser.ratings=currentUser.ratings.filter(r=>r.movieId!==id);currentUser.ratings.push({movieId:id,value:1,at:Date.now()});persist();toast("Добавлено в «Сохранённое»");renderResults()}
-function toggleFavoriteMovie(id,button){if(!currentUser||!id)return;const favorites=currentUser.profile.favoriteMovies||[],wasFavorite=favorites.includes(id);currentUser.profile.favoriteMovies=wasFavorite?favorites.filter(movieId=>movieId!==id):[...favorites,id];persist();const isFavorite=!wasFavorite;if(button){button.setAttribute("aria-pressed",String(isFavorite));button.setAttribute("aria-label",isFavorite?"Убрать из избранного":"Добавить в избранное");button.title=isFavorite?"Убрать из избранного":"Добавить в избранное";if(button.classList.contains("favorite-toggle")){button.textContent=isFavorite?"♥":"♡";button.classList.toggle("favorite-pop",isFavorite)}else button.textContent=isFavorite?"♥ В избранном":"♡ В избранное"}if(document.body.dataset.route==="favorites")renderFavorites();else if(button&&isFavorite){setTimeout(()=>button.classList.remove("favorite-pop"),500)}toast(isFavorite?"Добавлено в любимые":"Убрано из любимых")}
 function watched(id){if(!currentUser.watchHistory.includes(id))currentUser.watchHistory.push(id);persist();toast("Добавлено в просмотренное");renderHome();renderHistory();if(document.getElementById("detail").classList.contains("active"))show("results")}
 function notForMe(id){if(!currentUser.dislikedMovies.includes(id))currentUser.dislikedMovies.push(id);currentUser.likedMovies=currentUser.likedMovies.filter(x=>x!==id);currentUser.ratings=currentUser.ratings.filter(r=>r.movieId!==id);currentUser.ratings.push({movieId:id,value:-1,at:Date.now()});currentUser.savedMovies=currentUser.savedMovies.filter(x=>x!==id);persist();toast("Буду учитывать это мнение");lastResults=lastResults.filter(x=>x.m.id!==id);renderResults()}
 function renderHome(){if(!currentUser)return;document.getElementById("hello").textContent="Привет, "+currentUser.name+"!";document.getElementById("avatar").textContent=(currentUser.name||"?")[0].toUpperCase();document.getElementById("watchedCount").textContent=currentUser.watchHistory.length;document.getElementById("savedCount").textContent=currentUser.savedMovies.length;document.getElementById("favCount").textContent=currentUser.profile.favoriteMovies.length;document.getElementById("recent").innerHTML=currentUser.watchHistory.slice(-6).reverse().map(id=>{let m=movieById(id);if(!m)return"";return `<div class="mini"><img class="poster" src="${poster(m)}"><b>${esc(m.title)}</b></div>`}).join("")||`<div class="empty">Пока пусто. Посмотри что-нибудь</div>`;document.getElementById("taste").innerHTML=(currentUser.profile.preferredGenres||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("")||"<span class='small'>Профиль ещё можно настроить.</span>"}
 function renderHistory(){document.getElementById("historyList").innerHTML=currentUser.watchHistory.map(id=>{let m=movieById(id);if(!m)return"";return `<div class="movie-pick" style="margin-bottom:9px"><img class="poster" src="${poster(m)}"><div><strong>${esc(m.title)}</strong><small>${m.year} · ${esc(m.genreText)}</small></div></div>`}).join("")||`<div class="empty">Здесь появятся просмотренные фильмы.</div>`}
 function renderSaved(){document.getElementById("savedList").innerHTML=currentUser.savedMovies.map(id=>{let m=movieById(id);if(!m)return "";return `<div class="movie-pick" style="margin-bottom:9px" data-action="detail" data-id="${esc(m.id)}"><img class="poster" src="${poster(m)}" alt=""><div><strong>${esc(m.title)}</strong><small>${m.year} · ${esc(m.genreText)}</small></div></div>`}).join("")||`<div class="empty">Сохрани что-нибудь из рекомендаций.</div>`}
-function renderFavorites(){const ids=currentUser?.profile?.favoriteMovies||[];document.getElementById("favoritesList").innerHTML=ids.map(id=>{let m=movieById(id);if(!m)return "";return `<div class="movie-pick collection-pick" style="margin-bottom:9px" data-action="detail" data-id="${esc(m.id)}"><div class="poster-wrap"><img class="poster" src="${poster(m)}" alt="Постер: ${esc(m.title)}">${favoriteToggleHTML(m.id)}</div><div><strong>${esc(m.title)}</strong><small>${m.year} · ${esc(m.genreText)}</small></div></div>`}).join("")||`<div class="empty">Ты пока не добавил(а) любимые фильмы.</div>`}
+function renderFavorites(){const ids=currentUser?.profile?.favoriteMovies||[];document.getElementById("favoritesList").innerHTML=ids.map(id=>{let m=movieById(id);if(!m)return "";return `<div class="movie-pick" style="margin-bottom:9px" data-action="detail" data-id="${esc(m.id)}"><img class="poster" src="${poster(m)}" alt=""><div><strong>${esc(m.title)}</strong><small>${m.year} · ${esc(m.genreText)}</small></div></div>`}).join("")||`<div class="empty">Ты пока не добавил(а) любимые фильмы.</div>`}
 function renderProfile(){document.getElementById("profileName").textContent=currentUser.name;document.getElementById("profileEmail").textContent=currentUser.email||"Демо-аккаунт";document.getElementById("profileTaste").innerHTML=(currentUser.profile.likes||[]).map(x=>`<span class="tag">${x}</span>`).join("");document.getElementById("rewatchSwitch").classList.toggle("on",!!currentUser.profile.rewatch)}
 function toggleRewatch(){currentUser.profile.rewatch=!currentUser.profile.rewatch;document.getElementById("rewatchSwitch").classList.toggle("on",currentUser.profile.rewatch);persist()}
 function showLogin(){authMode="login";document.getElementById("authTitle").textContent="Войти";document.getElementById("authText").textContent="Войдите, чтобы открыть свой киношный профиль.";show("auth")}
@@ -1024,7 +856,6 @@ function toast(t){let e=document.getElementById("toast");e.textContent=t;e.class
 function poster(m){return m?.poster||"/assets/poster-placeholder.svg"}
 function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 document.addEventListener("error",event=>{const image=event.target;if(image instanceof HTMLImageElement&&image.classList.contains("poster")&&!image.dataset.fallback){image.dataset.fallback="true";image.src="/assets/poster-placeholder.svg"}},true);
-if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.addEventListener("pointermove",event=>{const button=event.target.closest?.(".magnetic-btn");if(!button)return;const rect=button.getBoundingClientRect(),dx=(event.clientX-(rect.left+rect.width/2))*.09,dy=(event.clientY-(rect.top+rect.height/2))*.09;button.style.setProperty("--mag-x",`${Math.max(-7,Math.min(7,dx))}px`);button.style.setProperty("--mag-y",`${Math.max(-5,Math.min(5,dy))}px`)});document.addEventListener("pointerout",event=>{const button=event.target.closest?.(".magnetic-btn");if(button&&!button.contains(event.relatedTarget)){button.style.setProperty("--mag-x","0px");button.style.setProperty("--mag-y","0px")}})}
 // Centralized interaction layer: all clicks are handled here, including dynamically rendered controls.
 document.addEventListener("click", function(event){
   const target=event.target.closest("[data-action]");
@@ -1039,10 +870,6 @@ document.addEventListener("click", function(event){
     else if(action==="ob-back") obBack();
     else if(action==="ob-next") obNext();
     else if(action==="start-daily") startDaily();
-    else if(action==="start-roulette") startRoulette();
-    else if(action==="spin-roulette") spinMovieRoulette();
-    else if(action==="favorite") toggleFavoriteMovie(target.dataset.id,target);
-    else if(action==="detail-back") show(detailReturnTo||"results");
     else if(action==="daily-back") dailyBack();
     else if(action==="daily-next") dailyNext().catch(error=>{console.error("Daily next error:",error);toast("Не удалось перейти дальше")});
     else if(action==="show-home") show("home");
@@ -1071,7 +898,7 @@ initPuffinGif();restore();
 </script>
 <script>
 (function(){
- const routes=['welcome','auth','onboarding','home','daily','roulette','results','detail','history','saved','favorites','profile'];
+ const routes=['welcome','auth','onboarding','home','daily','results','detail','history','saved','favorites','profile'];
  function route(){const r=(location.hash||'#welcome').slice(1).split('?')[0];return routes.includes(r)?r:'welcome'}
  function sync(){let r=route();if(!currentUser&&!['welcome','auth','onboarding'].includes(r))r="welcome";if(currentUser&&!currentUser.onboardingCompleted&&!['onboarding','welcome','auth'].includes(r))r="onboarding";document.documentElement.dataset.route=r;document.body.dataset.route=r;const screen=document.getElementById(r);if(screen){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));screen.classList.add("active");if(r==="home"&&currentUser)renderHome();if(r==="history"&&currentUser)renderHistory();if(r==="saved"&&currentUser)renderSaved();if(r==="favorites"&&currentUser)renderFavorites();if(r==="profile"&&currentUser)renderProfile();}window.dispatchEvent(new CustomEvent("spa-route-change",{detail:{route:r}}))}window.addEventListener('hashchange',sync);window.SPA={go:r=>{if(routes.includes(r))location.hash=r},current:route};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();

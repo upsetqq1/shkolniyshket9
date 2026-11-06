@@ -40,7 +40,7 @@ p{color:var(--muted);line-height:1.45}
 .small{font-size:12px;color:var(--muted)}
 .pusheen{position:absolute;right:-10px;bottom:70px;width:150px;max-height:180px;object-fit:contain;filter:none;pointer-events:none}.welcome-puffin{right:4px;top:145px;bottom:auto;width:min(150px,40vw);max-height:160px}
 .onboard{min-height:calc(var(--viewport-height) - 48px - env(safe-area-inset-bottom));display:flex;flex-direction:column}#onboarding{padding-bottom:calc(24px + env(safe-area-inset-bottom))}#daily{padding-bottom:calc(104px + env(safe-area-inset-bottom))}.progress{height:5px;background:#4b382d;border-radius:10px;overflow:hidden;margin:8px 0 28px}.progress i{display:block;height:100%;background:var(--accent);transition:.3s}
-@property --wave-color{syntax:"<color>";inherits:false;initial-value:hsl(0 0% 57%)}
+@property --wave-color{syntax:"<color>";inherits:true;initial-value:hsl(0 0% 57%)}
 .daily-wave{display:flex;align-items:center;gap:14px;min-height:92px;margin:0 0 20px;padding:10px 14px;border:1px solid color-mix(in srgb,var(--wave-color) 28%,var(--line));border-radius:22px;background:linear-gradient(115deg,color-mix(in srgb,var(--wave-color) 12%,var(--surface)),var(--surface) 72%);transition:background 1.4s ease,border-color 1.4s ease}
 .daily-wave__orb{position:relative;display:grid;place-items:center;width:68px;height:68px;flex:none;isolation:isolate}
 .daily-wave__orb::before{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--wave-color);opacity:.45;filter:blur(14px);transition:background 1.4s ease}
